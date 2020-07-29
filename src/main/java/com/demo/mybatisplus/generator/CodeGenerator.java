@@ -38,11 +38,12 @@ public class CodeGenerator {
 		//////////// 数据源配置 ////////////
 		DataSourceConfig dsc = new DataSourceConfig();
 		// 选择使用 MySQL
-		dsc.setDbType(DbType.MYSQL);
+		dsc.setDbType(DbType.H2);
 		dsc.setUrl("jdbc:h2:mem:TESTDB;DB_CLOSE_DELAY=1000");
 		dsc.setDriverName("org.h2.Driver");
 		dsc.setUsername("sa");
-        /*dsc.setUrl("jdbc:mysql://localhost:3306/eva?useUnicode=true&useSSL=false&characterEncoding=utf8");
+        /*dsc.setDbType(DbType.MYSQL);
+        dsc.setUrl("jdbc:mysql://localhost:3306/eva?useUnicode=true&useSSL=false&characterEncoding=utf8");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("root");*/

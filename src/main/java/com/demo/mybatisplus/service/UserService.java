@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapp
 import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
 import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.conditions.update.UpdateChainWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.demo.mybatisplus.pojo.User;
 
 import java.util.Collection;
@@ -137,4 +138,6 @@ public interface UserService {
     LambdaUpdateChainWrapper<User> lambdaUpdate();
 
     List<User> listUser();
+
+    IPage<User> pageUser(Page<User> page, String name);
 }

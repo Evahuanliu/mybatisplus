@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapp
 import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
 import com.baomidou.mybatisplus.extension.conditions.update.LambdaUpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.conditions.update.UpdateChainWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.demo.mybatisplus.mapper.UserMapper;
 import com.demo.mybatisplus.pojo.User;
 import com.demo.mybatisplus.service.UserService;
@@ -181,7 +182,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public IPage<User> page(IPage<User> page) {
-        return null;
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("name", "liuhuan");
+        return userMapper.selectPage(page, wrapper);
     }
 
     @Override
@@ -237,5 +240,10 @@ public class UserServiceImpl implements UserService {
         wrapper.eq("id", "1");
 
         return userMapper.selectList(wrapper);
+    }
+
+    @Override
+    public IPage<User> pageUser(Page<User> page, String name) {
+        return userMapper.selectPageVo(page, name);
     }
 }
