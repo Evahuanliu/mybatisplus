@@ -1,0 +1,12 @@
+logging:
+  level:
+    com.demo.mybatisplus.mapper: debug
+spring:
+  datasource:
+    url: jdbc:h2:mem:TESTDB;DB_CLOSE_DELAY=1000
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    schema: classpath:db/schema.sql
+    data: classpath:db/data.sql
+    initialization-mode: always
